@@ -211,7 +211,7 @@ export function ListsArchitecture() {
                 href="/the-500#curated-six"
                 className="group relative overflow-hidden bg-ink-soft p-6 transition-colors duration-300 hover:bg-ink"
               >
-                {/* Gold left-border sweep (top → bottom) */}
+                {/* Gold left-border sweep */}
                 <span
                   aria-hidden="true"
                   className="absolute left-0 top-0 h-full w-0.5 origin-top scale-y-0 bg-gold transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-y-100"
@@ -226,11 +226,17 @@ export function ListsArchitecture() {
                 </span>
 
                 <div className="relative flex h-full min-h-[120px] flex-col gap-2">
+                  {/* Small subtitle: opposite-language label */}
                   <span className="font-sans text-[10px] uppercase tracking-[0.2em] text-stone transition-colors duration-300 group-hover:text-gold">
-                    {t(enKey)}
+                    {isEn ? t(cnKey) : t(enKey)}
                   </span>
-                  <span className="font-serif-cn mt-1 flex-1 text-base font-bold text-ivory/80 transition-colors duration-300 group-hover:text-ivory">
-                    {t(cnKey)}
+                  {/* Primary name: current language, prominent */}
+                  <span
+                    className={`mt-1 flex-1 text-base font-bold text-ivory/80 transition-colors duration-300 group-hover:text-ivory ${
+                      isEn ? "font-sans uppercase tracking-[0.04em]" : "font-serif-cn"
+                    }`}
+                  >
+                    {isEn ? t(enKey) : t(cnKey)}
                   </span>
                   <span className="mt-4 inline-block translate-x-0 text-stone transition-all duration-300 group-hover:translate-x-1.5 group-hover:text-gold">
                     →
@@ -281,11 +287,17 @@ export function ListsArchitecture() {
                   <span className="font-display text-3xl font-bold text-wine/50 transition-colors duration-300 group-hover:text-wine">
                     {num}
                   </span>
+                  {/* Small subtitle: opposite-language label */}
                   <span className="font-sans mt-3 text-[10px] uppercase tracking-[0.2em] text-stone transition-colors duration-300 group-hover:text-gold">
-                    {t(enKey)}
+                    {isEn ? t(cnKey) : t(enKey)}
                   </span>
-                  <span className="font-serif-cn mt-2 flex-1 text-lg font-black text-ivory/80 transition-colors duration-300 group-hover:text-ivory">
-                    {t(cnKey)}
+                  {/* Primary name: current language, prominent */}
+                  <span
+                    className={`mt-2 flex-1 text-lg font-black text-ivory/80 transition-colors duration-300 group-hover:text-ivory ${
+                      isEn ? "font-sans uppercase tracking-[0.04em]" : "font-serif-cn"
+                    }`}
+                  >
+                    {isEn ? t(enKey) : t(cnKey)}
                   </span>
                   <span className="mt-5 inline-block translate-x-0 text-stone transition-all duration-300 group-hover:translate-x-1.5 group-hover:text-gold">
                     →

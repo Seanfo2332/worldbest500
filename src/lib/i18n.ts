@@ -89,6 +89,7 @@ export const translations = {
     // Cover Stories
     "coverstories.heading": "企业聚焦",
     "coverstories.viewAll": "查看全部报道",
+    "coverstories.readmore": "阅读全文",
 
     // Methodology Strip
     "methodology.heading": "评选方法论",
@@ -242,6 +243,7 @@ export const translations = {
     // Cover Stories
     "coverstories.heading": "Company Focus",
     "coverstories.viewAll": "View All Stories",
+    "coverstories.readmore": "Read More",
 
     // Methodology Strip
     "methodology.heading": "Evaluation Methodology",

@@ -77,7 +77,7 @@ export function CoverStories() {
                     {coverStories[0].date}
                   </span>
                   <span className="font-sans text-xs uppercase tracking-[0.18em] text-stone transition-colors duration-300 group-hover:text-gold">
-                    阅读全文 →
+                    {t("coverstories.readmore")} →
                   </span>
                 </div>
               </div>
