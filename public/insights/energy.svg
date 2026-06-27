@@ -1,0 +1,116 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 533">
+  <defs>
+    <linearGradient id="en-sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#080a0e"/>
+      <stop offset="35%" stop-color="#0e1420"/>
+      <stop offset="68%" stop-color="#1a2535"/>
+      <stop offset="85%" stop-color="#253040"/>
+      <stop offset="100%" stop-color="#1c2835"/>
+    </linearGradient>
+    <linearGradient id="en-horizon" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#3a4858" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="transparent"/>
+    </linearGradient>
+    <radialGradient id="en-moon" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#c0ccd4"/>
+      <stop offset="70%" stop-color="#a0b0bc"/>
+      <stop offset="100%" stop-color="#809098"/>
+    </radialGradient>
+    <filter id="en-glow">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="en-cloud-filter">
+      <feTurbulence type="fractalNoise" baseFrequency="0.018 0.012" numOctaves="4" seed="7" result="noise"/>
+      <feColorMatrix type="matrix" in="noise"
+        values="0 0 0 0 0.18
+                0 0 0 0 0.22
+                0 0 0 0 0.30
+                0 0 0 4.5 -2.2" result="cloud"/>
+      <feComposite in="cloud" in2="SourceGraphic" operator="in"/>
+    </filter>
+  </defs>
+
+  <!-- Sky -->
+  <rect width="800" height="533" fill="url(#en-sky)"/>
+
+  <!-- Cloud texture layer -->
+  <rect x="0" y="0" width="800" height="400" fill="#2a3848" opacity="0.8" filter="url(#en-cloud-filter)"/>
+
+  <!-- Cloud mass shapes (ellipses for drama) -->
+  <ellipse cx="150" cy="120" rx="190" ry="70" fill="#1e2a38" opacity="0.7"/>
+  <ellipse cx="400" cy="90" rx="260" ry="80" fill="#1a2430" opacity="0.65"/>
+  <ellipse cx="650" cy="140" rx="200" ry="65" fill="#202e3e" opacity="0.6"/>
+  <ellipse cx="250" cy="175" rx="160" ry="55" fill="#242e3c" opacity="0.5"/>
+  <ellipse cx="560" cy="195" rx="180" ry="58" fill="#202c3a" opacity="0.5"/>
+  <ellipse cx="80" cy="230" rx="140" ry="45" fill="#1e2a36" opacity="0.4"/>
+  <ellipse cx="700" cy="210" rx="150" ry="50" fill="#1e2a38" opacity="0.4"/>
+
+  <!-- Moon -->
+  <circle cx="640" cy="78" r="28" fill="url(#en-moon)" filter="url(#en-glow)" opacity="0.65"/>
+  <circle cx="640" cy="78" r="28" fill="none" stroke="#c0ccd4" stroke-width="0.5" opacity="0.3"/>
+
+  <!-- Horizon glow band -->
+  <rect x="0" y="310" width="800" height="90" fill="url(#en-horizon)"/>
+
+  <!-- Ground / horizon -->
+  <rect x="0" y="388" width="800" height="145" fill="#0c1018"/>
+  <!-- Ground texture -->
+  <rect x="0" y="388" width="800" height="10" fill="#182030" opacity="0.5"/>
+
+  <!-- Turbine 1 (left, tallest) -->
+  <g transform="translate(180, 0)">
+    <!-- Tower -->
+    <polygon points="-5,395 5,395 3,168 -3,168" fill="#0e1218"/>
+    <!-- Hub -->
+    <circle cx="0" cy="168" r="5" fill="#1a2028"/>
+    <!-- Blades (3) -->
+    <!-- Blade 1: up-left -->
+    <path d="M 0 168 C -8 145 -22 88 -14 62 C -10 74 -4 130 0 168 Z" fill="#0c1016"/>
+    <!-- Blade 2: right -->
+    <path d="M 0 168 C 18 162 68 148 82 158 C 72 166 24 166 0 168 Z" fill="#0e1218"/>
+    <!-- Blade 3: down-left -->
+    <path d="M 0 168 C -12 182 -48 218 -58 230 C -50 224 -16 186 0 168 Z" fill="#0a0e12"/>
+  </g>
+
+  <!-- Turbine 2 (center, slightly shorter) -->
+  <g transform="translate(400, 20)">
+    <polygon points="-5,375 5,375 3,175 -3,175" fill="#0e1218"/>
+    <circle cx="0" cy="175" r="5" fill="#1a2028"/>
+    <path d="M 0 175 C -8 152 -20 96 -12 70 C -8 82 -4 138 0 175 Z" fill="#0c1016"/>
+    <path d="M 0 175 C 18 169 65 154 78 164 C 68 172 22 172 0 175 Z" fill="#0e1218"/>
+    <path d="M 0 175 C -11 188 -44 222 -54 234 C -46 228 -14 192 0 175 Z" fill="#0a0e12"/>
+  </g>
+
+  <!-- Turbine 3 (right, mid height, in slight haze) -->
+  <g transform="translate(620, 30)" opacity="0.8">
+    <polygon points="-4,370 4,370 2,185 -2,185" fill="#121820"/>
+    <circle cx="0" cy="185" r="4" fill="#1e2830"/>
+    <path d="M 0 185 C -6 163 -16 108 -9 84 C -6 95 -3 148 0 185 Z" fill="#0e1420"/>
+    <path d="M 0 185 C 14 179 52 165 62 174 C 54 182 17 182 0 185 Z" fill="#121820"/>
+    <path d="M 0 185 C -9 197 -36 228 -44 240 C -37 234 -11 202 0 185 Z" fill="#0a1018"/>
+  </g>
+
+  <!-- Distant turbine (far right, very faint) -->
+  <g transform="translate(740, 55)" opacity="0.35">
+    <polygon points="-3,355 3,355 2,215 -2,215" fill="#1a2838"/>
+    <path d="M 0 215 C -5 195 -12 148 -7 126 C -4 135 -2 180 0 215 Z" fill="#16202e"/>
+    <path d="M 0 215 C 11 210 40 197 48 206 C 42 213 13 213 0 215 Z" fill="#1a2838"/>
+    <path d="M 0 215 C -7 225 -28 252 -35 262 C -28 256 -8 230 0 215 Z" fill="#141e2c"/>
+  </g>
+
+  <!-- Subtle ground reflection under turbines -->
+  <ellipse cx="180" cy="396" rx="30" ry="5" fill="#0e1825" opacity="0.5"/>
+  <ellipse cx="400" cy="396" rx="28" ry="4" fill="#0e1825" opacity="0.4"/>
+  <ellipse cx="620" cy="396" rx="24" ry="4" fill="#0e1825" opacity="0.35"/>
+
+  <!-- Sky stars (faint) -->
+  <g fill="#ffffff">
+    <circle cx="60" cy="42" r="0.7" opacity="0.35"/>
+    <circle cx="310" cy="28" r="0.8" opacity="0.4"/>
+    <circle cx="480" cy="48" r="0.6" opacity="0.3"/>
+    <circle cx="740" cy="35" r="0.7" opacity="0.38"/>
+    <circle cx="120" cy="78" r="0.5" opacity="0.28"/>
+    <circle cx="555" cy="65" r="0.6" opacity="0.32"/>
+  </g>
+</svg>

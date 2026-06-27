@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 533">
+  <defs>
+    <radialGradient id="ap-bg" cx="50%" cy="45%" r="65%">
+      <stop offset="0%" stop-color="#1e2228"/>
+      <stop offset="55%" stop-color="#111418"/>
+      <stop offset="100%" stop-color="#080a0c"/>
+    </radialGradient>
+    <radialGradient id="ap-glow" cx="50%" cy="48%" r="40%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.07"/>
+      <stop offset="60%" stop-color="#c0c8d0" stop-opacity="0.025"/>
+      <stop offset="100%" stop-color="transparent"/>
+    </radialGradient>
+    <linearGradient id="ap-logo-fill" x1="0.3" y1="0" x2="0.7" y2="1">
+      <stop offset="0%" stop-color="#e0e8ee"/>
+      <stop offset="50%" stop-color="#b0bec8"/>
+      <stop offset="100%" stop-color="#788090"/>
+    </linearGradient>
+    <linearGradient id="ap-refl" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.03"/>
+      <stop offset="100%" stop-color="transparent"/>
+    </linearGradient>
+    <linearGradient id="ap-floor-grad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1a2028" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#080a0c"/>
+    </linearGradient>
+    <pattern id="ap-glass" x="0" y="0" width="80" height="60" patternUnits="userSpaceOnUse">
+      <rect width="80" height="60" fill="none" stroke="#22283a" stroke-width="0.5" opacity="0.5"/>
+    </pattern>
+    <filter id="ap-logo-blur">
+      <feGaussianBlur stdDeviation="14" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="533" fill="url(#ap-bg)"/>
+
+  <!-- Glass facade grid -->
+  <rect width="800" height="533" fill="url(#ap-glass)"/>
+
+  <!-- Vertical structural columns -->
+  <g stroke="#222a38" stroke-width="1.5" opacity="0.6">
+    <line x1="160" y1="0" x2="160" y2="533"/>
+    <line x1="320" y1="0" x2="320" y2="533"/>
+    <line x1="480" y1="0" x2="480" y2="533"/>
+    <line x1="640" y1="0" x2="640" y2="533"/>
+  </g>
+
+  <!-- Glass reflection panels -->
+  <rect x="0" y="0" width="400" height="266" fill="url(#ap-refl)"/>
+  <rect x="320" y="0" width="160" height="533" fill="#ffffff" opacity="0.012"/>
+  <rect x="0" y="0" width="800" height="533" fill="url(#ap-glow)"/>
+
+  <!-- Apple logo -->
+  <!-- Body of apple - rounded organic shape -->
+  <path d="
+    M 400,152
+    C 416,136 440,133 454,146
+    C 468,133 490,128 500,142
+    C 514,156 512,178 506,192
+    C 522,203 534,226 534,250
+    C 534,306 511,346 488,362
+    C 472,374 453,377 437,369
+    C 423,376 405,376 391,369
+    C 375,377 356,374 340,362
+    C 317,346 294,306 294,250
+    C 294,226 306,203 322,192
+    C 316,178 314,156 328,142
+    C 338,128 360,133 374,146
+    C 388,133 384,136 400,152 Z
+  " fill="url(#ap-logo-fill)" opacity="0.9" filter="url(#ap-logo-blur)"/>
+
+  <!-- Leaf stem at top -->
+  <path d="M 400,152 C 394,130 414,112 432,122 C 420,130 410,142 400,152 Z"
+        fill="#c0ccd4" opacity="0.85" filter="url(#ap-logo-blur)"/>
+
+  <!-- Logo highlight (top-left catch light) -->
+  <path d="M 374,152 C 382,138 397,133 412,140 C 422,144 428,156 426,168
+           C 416,161 401,158 387,163 C 379,165 371,173 369,184
+           C 361,172 362,158 374,152 Z"
+        fill="#ffffff" opacity="0.15"/>
+
+  <!-- Faint floor reflection below logo -->
+  <path d="
+    M 400,385
+    C 416,401 440,404 454,391
+    C 468,404 490,409 500,395
+    C 514,381 512,359 506,345
+    C 522,334 534,311 534,287
+    C 534,286 534,286 534,285
+    L 294,285
+    C 294,286 294,286 294,287
+    C 294,311 306,334 322,345
+    C 316,359 314,381 328,395
+    C 338,409 360,404 374,391
+    C 388,404 384,401 400,385 Z
+  " fill="#9aaab8" opacity="0.08"/>
+
+  <!-- Floor line -->
+  <line x1="0" y1="440" x2="800" y2="440" stroke="#1e2838" stroke-width="1" opacity="0.6"/>
+  <rect x="0" y="440" width="800" height="93" fill="url(#ap-floor-grad)"/>
+
+  <!-- Subtle ambient light circles -->
+  <circle cx="400" cy="280" r="200" fill="none" stroke="#c0ccd4" stroke-width="0.5" opacity="0.04"/>
+  <circle cx="400" cy="280" r="260" fill="none" stroke="#c0ccd4" stroke-width="0.5" opacity="0.025"/>
+</svg>
