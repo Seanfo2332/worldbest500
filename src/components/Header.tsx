@@ -34,17 +34,17 @@ export function Header() {
           : "border-transparent bg-transparent"
       }`}
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 md:px-10">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3 md:px-10 md:py-4">
 
-        {/* Logo image — invert(1) turns black text → white on dark bg */}
+        {/* Logo — increased from h-12 to h-20/h-24 to compensate for PNG whitespace */}
         <Link href="/" className="shrink-0" aria-label="寰球 500 · World Best 500">
           <Image
             src="/logo.png"
             alt="World Best 500 · 寰球 500"
-            width={160}
-            height={64}
+            width={280}
+            height={112}
             priority
-            className="h-12 w-auto object-contain"
+            className="h-20 w-auto object-contain md:h-24"
             style={{ filter: "brightness(0) invert(1)" }}
           />
         </Link>
