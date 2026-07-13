@@ -9,7 +9,6 @@ import { Reveal } from "./Reveal";
 const FACTS: { labelKey: TranslationKey; valueKey: TranslationKey }[] = [
   { labelKey: "aboutpage.fact1.label", valueKey: "aboutpage.fact1.value" },
   { labelKey: "aboutpage.fact2.label", valueKey: "aboutpage.fact2.value" },
-  { labelKey: "aboutpage.fact3.label", valueKey: "aboutpage.fact3.value" },
   { labelKey: "aboutpage.fact4.label", valueKey: "aboutpage.fact4.value" },
   { labelKey: "aboutpage.fact5.label", valueKey: "aboutpage.fact5.value" },
 ];
@@ -40,7 +39,7 @@ export function AboutContent() {
             <span className="font-sans block text-[10px] uppercase tracking-[0.2em] text-gold">
               {t("aboutpage.factsHeading")}
             </span>
-            <div className="mt-4 grid grid-cols-2 gap-x-6 gap-y-5 sm:grid-cols-5">
+            <div className="mt-4 grid grid-cols-2 gap-x-6 gap-y-5 sm:grid-cols-4">
               {FACTS.map(({ labelKey, valueKey }) => (
                 <div key={labelKey}>
                   <p className="font-sans text-[10px] uppercase tracking-[0.16em] text-stone">
