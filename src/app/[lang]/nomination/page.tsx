@@ -4,6 +4,7 @@ import { buildLocaleMetadata } from "@/lib/metadata";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { NominationCTA } from "@/components/NominationCTA";
+import { NominationDetails } from "@/components/NominationDetails";
 
 export async function generateMetadata({
   params,
@@ -28,6 +29,7 @@ export default function NominationPage() {
       <Header />
       <main className="flex-1 pt-32 md:pt-40">
         <NominationCTA />
+        <NominationDetails />
       </main>
       <Footer />
     </div>

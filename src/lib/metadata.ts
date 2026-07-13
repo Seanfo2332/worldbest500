@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import type { Lang } from "./i18n";
 
+export const SITE_URL = "https://worldbest500.vercel.app";
+
 /**
  * Build correct canonical + hreflang alternate metadata for a given page.
  *

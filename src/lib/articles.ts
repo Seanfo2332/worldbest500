@@ -79,3 +79,10 @@ export function findArticleBySlug(slug: string): Article | undefined {
 export function getAllArticleSlugs(): string[] {
   return Array.from(articleIndex.keys());
 }
+
+/** Other articles, excluding the current one, for a "related reading" section. */
+export function getRelatedArticles(currentSlug: string, count: number): Article[] {
+  return Array.from(articleIndex.values())
+    .filter((article) => article.slug !== currentSlug)
+    .slice(0, count);
+}

@@ -4,6 +4,7 @@ import { Noto_Serif_SC, Noto_Sans_SC, Cormorant_Garamond, DM_Sans } from "next/f
 import "../globals.css";
 import { Providers } from "@/app/providers";
 import type { Lang } from "@/lib/i18n";
+import { SITE_URL } from "@/lib/metadata";
 
 /* ── Chinese fonts ── */
 const notoSerifSC = Noto_Serif_SC({
@@ -36,8 +37,6 @@ const dmSans = DM_Sans({
 /* ── Supported locales — "zh" is served at "/" via a rewrite in next.config.ts,
    "en" is served at "/en". Keep in sync with next.config.ts + LanguageContext. ── */
 export const SUPPORTED_LANGS: Lang[] = ["zh", "en"];
-
-const SITE_URL = "https://worldbest500.vercel.app";
 
 export function generateStaticParams() {
   return SUPPORTED_LANGS.map((lang) => ({ lang }));
@@ -119,6 +118,27 @@ export default async function LangLayout({
 
   const htmlLang = lang === "zh" ? "zh-CN" : "en";
 
+  // JSON-LD structured data so search engines (and AI answer engines like
+  // SearchGPT / Perplexity / ChatGPT Search) can identify this as a ranking
+  // publication, not just a generic website.
+  const organizationSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "World Best 500",
+    alternateName: "寰球 500",
+    url: SITE_URL,
+    logo: `${SITE_URL}/logo.png`,
+  };
+
+  const websiteSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "World Best 500",
+    alternateName: "寰球 500",
+    url: SITE_URL,
+    inLanguage: htmlLang,
+  };
+
   return (
     <html
       lang={htmlLang}
@@ -129,6 +149,14 @@ export default async function LangLayout({
         className="min-h-full flex flex-col bg-ink text-ivory"
         suppressHydrationWarning
       >
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+        />
         <Providers initialLang={lang}>{children}</Providers>
       </body>
     </html>

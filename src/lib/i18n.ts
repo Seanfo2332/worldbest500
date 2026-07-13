@@ -159,6 +159,9 @@ export const translations = {
     // The 500 (full ranking page)
     "the500page.eyebrow": "主榜",
     "the500page.previewNote": "首期预览 · 完整 500 强榜单将分批公布",
+    "the500page.leadersHeading": "代表人物示例",
+    "the500page.leadersNote": "以下为国际巨头层的示例人物，完整 30 位个人子榜名单将分批公布。",
+    "the500page.curatedExamplesLabel": "示例入选企业",
 
     // Companies directory
     "companiespage.subtitle": "收录寰球 500 榜单及企业聚焦报道中出现的全球领先企业，按行业与总部所在地分类呈现。",
@@ -173,6 +176,20 @@ export const translations = {
 
     // About
     "aboutpage.title": "关于寰球 500",
+    "aboutpage.imgAlt": "现代建筑，象征全球商业格局的长期视野",
+    "aboutpage.extended.p1": "「寰球 500」于 2026 年推出创刊号，这是一个从零开始的项目：没有历史包袱，没有既定立场，只有对客观、严谨评选的坚持。我们深知信任需要时间积累，因此选择以稳健的步伐逐步扩大榜单覆盖范围，而非在创刊之初便宣称完整的 500 家名单。",
+    "aboutpage.extended.p2": "我们的读者包括研究全球企业格局的商业领袖、追踪市场动态的投资者，以及需要快速掌握行业排名的财经记者。无论在办公室深入研究，还是在通勤途中快速浏览，「寰球 500」都致力于在最短时间内传递最具分量的信息。",
+    "aboutpage.factsHeading": "刊物信息",
+    "aboutpage.fact1.label": "品牌",
+    "aboutpage.fact1.value": "寰球 500 · World Best 500",
+    "aboutpage.fact2.label": "创刊",
+    "aboutpage.fact2.value": "2026 年 5 月",
+    "aboutpage.fact3.label": "语言",
+    "aboutpage.fact3.value": "中文（简体）· English",
+    "aboutpage.fact4.label": "发布频率",
+    "aboutpage.fact4.value": "年度",
+    "aboutpage.fact5.label": "评选范围",
+    "aboutpage.fact5.value": "全球企业与商业领袖",
     "aboutpage.standardsHeading": "我们的准则",
     "aboutpage.standard1.title": "编辑独立性",
     "aboutpage.standard1.body": "所有榜单结果均由编辑委员会独立审核，不受被评选企业、广告主或合作伙伴的商业关系影响。",
@@ -186,6 +203,62 @@ export const translations = {
 
     // Article detail
     "article.backToInsights": "← 返回洞察",
+    "article.relatedHeading": "更多报道",
+
+    // Curated Six / Individual Three descriptions
+    "lists.c1.desc": "在各主要行业类别中综合得分最高的十家企业，表彰其在特定竞争领域内的领先地位。",
+    "lists.c2.desc": "在环境治理、社会责任与治理透明度方面展现出可衡量领先水平的企业。",
+    "lists.c3.desc": "在完整榜单中，年度营收与市场份额增速表现最为突出的十家企业。",
+    "lists.c4.desc": "因持续投入研发、并深刻重塑所在行业格局而获得认可的十家企业。",
+    "lists.c5.desc": "业务与营收显著超越本国市场、覆盖多个全球区域的十家企业。",
+    "lists.c6.desc": "总部位于新兴经济体、或主要增长动力源自新兴市场的十家最具影响力企业。",
+    "lists.i1.desc": "全球范围内最具影响力的现任 CEO 或总裁，评选对标 Harvard Business Review 年度最佳 CEO 榜单。",
+    "lists.i2.desc": "创办了具影响力企业的创办人，无论在任、已退休或已跨界发展，评选对标 Forbes 年度创办人榜单。",
+    "lists.i3.desc": "在科技、文化、金融或跨界领域具开创性影响力的个人，评选对标 TIME 100 年度商业类人物榜单。",
+
+    // Methodology FAQ
+    "methodologypage.faqHeading": "常见问题",
+    "methodologypage.faq.q1": "榜单多久更新一次？",
+    "methodologypage.faq.a1": "「寰球 500」每年编制并发布一次，编辑委员会会在每期发布前对方法论与数据来源进行复核。",
+    "methodologypage.faq.q2": "企业可以主动申请入选吗？",
+    "methodologypage.faq.a2": "可以。企业可通过提名通道自荐，但最终是否入选，完全取决于编辑委员会依据四大评分维度进行的独立评估。",
+    "methodologypage.faq.q3": "评分所依据的数据来自哪里？",
+    "methodologypage.faq.a3": "主要来自经审计的公开财报，并辅以 Bloomberg、FactSet 等第三方数据平台的数据，最终由编辑委员会进行交叉核验。",
+    "methodologypage.faq.q4": "榜单是否会偏向特定地区或行业？",
+    "methodologypage.faq.a4": "不会。评分方法论对所有地区与行业采用完全相同的评分标准；特定行业中出现的集中现象，反映的是市场数据本身，而非编辑倾向的结果。",
+
+    // Nomination eligibility + process
+    "nominationpage.eligibilityHeading": "入选资格",
+    "nominationpage.eligibility1": "年度营收达到十亿美元以上的上市公司或主要私营企业",
+    "nominationpage.eligibility2": "业务运营覆盖两个以上国家或地区",
+    "nominationpage.eligibility3": "过去三年内保持公开、可核实的财务披露记录",
+    "nominationpage.eligibility4": "未涉及编辑委员会认定的重大合规或诚信争议",
+    "nominationpage.processHeading": "提名流程",
+    "nominationpage.process1.title": "提交材料",
+    "nominationpage.process1.desc": "企业、个人或第三方机构通过官方渠道提交提名材料。",
+    "nominationpage.process2.title": "初步筛选",
+    "nominationpage.process2.desc": "编辑委员会依据基本资格标准进行初步筛选。",
+    "nominationpage.process3.title": "综合评估",
+    "nominationpage.process3.desc": "通过评选方法论四大维度进行量化与定性评估。",
+    "nominationpage.process4.title": "结果公布",
+    "nominationpage.process4.desc": "评选结果随年度榜单一并公布。",
+
+    // Two-tier selection model
+    "methodologypage.tiersHeading": "两层入选机制",
+    "methodologypage.tiersIntro": "「寰球 500」的入选机制实际上分为两层，理解这一设计，有助于读者更准确地解读榜单的构成方式。",
+    "methodologypage.tier1.title": "国际巨头层",
+    "methodologypage.tier1.desc": "基于公开财报、公开资料及第三方数据自动纳入评选，覆盖苹果、微软、丰田、三星、沙特阿美等已具全球公信力的企业，以及提姆·库克、沃伦·巴菲特、埃隆·马斯克、张忠谋等具有国际影响力的商业领袖。这一层不需要企业或个人主动参与，由编辑委员会依据公开信息独立评定，为榜单提供公信力基础。",
+    "methodologypage.tier2.title": "主动参与层",
+    "methodologypage.tier2.desc": "面向中文世界企业、新兴市场企业及合作方引荐的企业，以及中文世界的 CEO、创办人与行业领袖开放。这一层接受提名、自荐与第三方推荐，入选后可获得官方徽章并与编辑部保持持续沟通，为榜单注入实际商业参与价值。",
+
+    // About: how we work
+    "aboutpage.processHeading": "我们的工作方式",
+    "aboutpage.process1.title": "全年追踪",
+    "aboutpage.process1.desc": "编辑团队全年持续追踪企业财报、行业动态与专家访谈，而非仅在评选期集中收集数据。",
+    "aboutpage.process2.title": "独立复核",
+    "aboutpage.process2.desc": "每一项量化评分结果，均由编辑委员会成员独立复核，确保定性判断与数据结果相互印证。",
+    "aboutpage.process3.title": "透明发布",
+    "aboutpage.process3.desc": "评选方法论与评分权重公开发布，接受读者与业界的持续检验。",
   },
   en: {
     // Header
@@ -347,6 +420,9 @@ export const translations = {
     // The 500 (full ranking page)
     "the500page.eyebrow": "Main List",
     "the500page.previewNote": "Inaugural preview: the complete list of 500 will be published progressively.",
+    "the500page.leadersHeading": "Sample Honorees",
+    "the500page.leadersNote": "The following are example figures from the International Giants Tier; the complete list of 30 individual honorees will be published progressively.",
+    "the500page.curatedExamplesLabel": "Example Members",
 
     // Companies directory
     "companiespage.subtitle": "Leading global companies featured across the World Best 500 ranking and our company-focus coverage, organized by industry and headquarters.",
@@ -361,6 +437,20 @@ export const translations = {
 
     // About
     "aboutpage.title": "About World Best 500",
+    "aboutpage.imgAlt": "Modern architecture, symbolizing a long-term view of the global business landscape",
+    "aboutpage.extended.p1": "World Best 500 launched its inaugural edition in 2026: a project built from the ground up, with no legacy baggage and no predetermined position, only a commitment to objective, rigorous evaluation. We understand that trust takes time to earn, which is why we are expanding the ranking's coverage deliberately and in stages, rather than claiming a complete list of 500 companies from day one.",
+    "aboutpage.extended.p2": "Our readers include business leaders researching the global corporate landscape, investors tracking market movements, and financial journalists who need to quickly grasp industry rankings. Whether reading deeply in the office or skimming during a commute, World Best 500 is built to deliver the most substantive information in the shortest possible time.",
+    "aboutpage.factsHeading": "Publication Facts",
+    "aboutpage.fact1.label": "Brand",
+    "aboutpage.fact1.value": "World Best 500 · 寰球 500",
+    "aboutpage.fact2.label": "Founded",
+    "aboutpage.fact2.value": "May 2026",
+    "aboutpage.fact3.label": "Language",
+    "aboutpage.fact3.value": "Chinese (Simplified) · English",
+    "aboutpage.fact4.label": "Frequency",
+    "aboutpage.fact4.value": "Annual",
+    "aboutpage.fact5.label": "Scope",
+    "aboutpage.fact5.value": "Global companies and business leaders",
     "aboutpage.standardsHeading": "Our Standards",
     "aboutpage.standard1.title": "Editorial Independence",
     "aboutpage.standard1.body": "Every ranking outcome is independently reviewed by our editorial committee, free from commercial influence by ranked companies, advertisers, or partners.",
@@ -374,6 +464,62 @@ export const translations = {
 
     // Article detail
     "article.backToInsights": "← Back to Insights",
+    "article.relatedHeading": "More From World Best 500",
+
+    // Curated Six / Individual Three descriptions
+    "lists.c1.desc": "The ten highest-scoring companies within each major industry category, recognizing dominance within a specific competitive arena.",
+    "lists.c2.desc": "Companies demonstrating measurable leadership in environmental stewardship, social responsibility, and governance transparency.",
+    "lists.c3.desc": "The ten companies posting the strongest year-over-year revenue and market-share growth across the full ranking.",
+    "lists.c4.desc": "Recognized for sustained investment in research and development that has reshaped their respective industries.",
+    "lists.c5.desc": "Companies whose operations and revenue extend meaningfully beyond their home market into multiple global regions.",
+    "lists.c6.desc": "The ten most influential companies headquartered in, or primarily driven by growth in, emerging economies.",
+    "lists.i1.desc": "The most influential sitting CEOs and presidents worldwide, benchmarked against the Harvard Business Review's annual Best-Performing CEOs ranking.",
+    "lists.i2.desc": "Founders of influential companies, whether still active, retired, or now working across other ventures, benchmarked against Forbes' annual founders rankings.",
+    "lists.i3.desc": "Individuals with pioneering influence across technology, culture, finance, or cross-disciplinary fields, benchmarked against TIME's annual 100 Most Influential People in business.",
+
+    // Methodology FAQ
+    "methodologypage.faqHeading": "Frequently Asked Questions",
+    "methodologypage.faq.q1": "How often is the ranking updated?",
+    "methodologypage.faq.a1": "World Best 500 is compiled and published annually, with the editorial committee reviewing methodology and data sources ahead of each edition.",
+    "methodologypage.faq.q2": "Can a company request to be included?",
+    "methodologypage.faq.a2": "Yes. Companies may self-nominate through our nomination channel, though inclusion is determined solely by the editorial committee's independent evaluation against the four scoring dimensions.",
+    "methodologypage.faq.q3": "Where does the underlying data come from?",
+    "methodologypage.faq.a3": "Primarily audited public financial reports, supplemented by third-party data platforms such as Bloomberg and FactSet, and cross-verified by our editorial committee.",
+    "methodologypage.faq.q4": "Does the ranking favor any particular region or industry?",
+    "methodologypage.faq.a4": "No. The methodology applies identical scoring criteria across all regions and industries; observed concentration in certain sectors reflects underlying market data, not editorial weighting.",
+
+    // Nomination eligibility + process
+    "nominationpage.eligibilityHeading": "Eligibility Criteria",
+    "nominationpage.eligibility1": "Public companies or major private enterprises with annual revenue of at least one billion US dollars",
+    "nominationpage.eligibility2": "Business operations spanning two or more countries or regions",
+    "nominationpage.eligibility3": "A public, verifiable financial disclosure record over the past three years",
+    "nominationpage.eligibility4": "No unresolved major compliance or integrity disputes as determined by the editorial committee",
+    "nominationpage.processHeading": "Nomination Process",
+    "nominationpage.process1.title": "Submission",
+    "nominationpage.process1.desc": "Companies, individuals, or third-party institutions submit nomination materials through official channels.",
+    "nominationpage.process2.title": "Initial Screening",
+    "nominationpage.process2.desc": "The editorial committee conducts an initial screening against baseline eligibility criteria.",
+    "nominationpage.process3.title": "Comprehensive Evaluation",
+    "nominationpage.process3.desc": "Quantitative and qualitative evaluation across the four methodology dimensions.",
+    "nominationpage.process4.title": "Results Announced",
+    "nominationpage.process4.desc": "Results are announced alongside the annual ranking.",
+
+    // Two-tier selection model
+    "methodologypage.tiersHeading": "The Two-Tier Selection Model",
+    "methodologypage.tiersIntro": "World Best 500 selection actually operates on two distinct tiers. Understanding this design helps readers interpret how the ranking is constructed.",
+    "methodologypage.tier1.title": "International Giants Tier",
+    "methodologypage.tier1.desc": "Automatically included based on public financial reports, public records, and third-party data, this tier covers globally recognized companies such as Apple, Microsoft, Toyota, Samsung, and Saudi Aramco, along with internationally influential business leaders such as Tim Cook, Warren Buffett, Elon Musk, and Morris Chang. This tier requires no participation from the company or individual; the editorial committee determines placement independently based on public information, providing the ranking's credibility foundation.",
+    "methodologypage.tier2.title": "Active Participation Tier",
+    "methodologypage.tier2.desc": "Open to companies from the Chinese-speaking world, emerging-market companies, and companies introduced through partners, as well as CEOs, founders, and industry leaders from the Chinese-speaking business world. This tier accepts nominations, self-nominations, and third-party recommendations; those selected receive an official badge and maintain ongoing communication with our editorial desk, giving the ranking its practical commercial participation value.",
+
+    // About: how we work
+    "aboutpage.processHeading": "How We Work",
+    "aboutpage.process1.title": "Year-Round Tracking",
+    "aboutpage.process1.desc": "Our editorial team tracks corporate filings, industry developments, and expert interviews year-round, rather than compiling data only during the evaluation window.",
+    "aboutpage.process2.title": "Independent Review",
+    "aboutpage.process2.desc": "Every quantitative score is independently reviewed by editorial committee members, ensuring qualitative judgment and data outcomes reinforce one another.",
+    "aboutpage.process3.title": "Transparent Publication",
+    "aboutpage.process3.desc": "Our methodology and scoring weights are published openly, open to ongoing scrutiny from readers and industry.",
   },
 } as const;
 

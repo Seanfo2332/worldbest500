@@ -3,17 +3,20 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useLanguage } from "@/context/LanguageContext";
-import type { Article } from "@/lib/articles";
+import { getRelatedArticles, type Article } from "@/lib/articles";
 import { Reveal } from "./Reveal";
 
 interface ArticleDetailProps {
   article: Article;
 }
 
+const RELATED_COUNT = 3;
+
 export function ArticleDetail({ article }: ArticleDetailProps) {
   const { lang, t } = useLanguage();
   const isEn = lang === "en";
   const prefix = isEn ? "/en" : "";
+  const related = getRelatedArticles(article.slug, RELATED_COUNT);
 
   return (
     <article className="px-6 pb-20 pt-32 md:px-10 md:pt-40">
@@ -63,6 +66,36 @@ export function ArticleDetail({ article }: ArticleDetailProps) {
           ))}
         </Reveal>
       </div>
+
+      {related.length > 0 && (
+        <div className="mx-auto mt-16 max-w-5xl border-t border-hairline pt-10">
+          <Reveal>
+            <h2 className="font-sans text-xs uppercase tracking-[0.18em] text-gold">
+              {t("article.relatedHeading")}
+            </h2>
+          </Reveal>
+          <div className="mt-6 grid grid-cols-1 gap-px bg-hairline sm:grid-cols-3">
+            {related.map((item, i) => (
+              <Reveal key={item.slug} delay={i * 0.06}>
+                <Link
+                  href={`${prefix}/insights/${item.slug}`}
+                  className="group flex h-full flex-col gap-3 bg-ink-soft p-6 transition-colors duration-300 hover:bg-ink"
+                >
+                  <span className="font-sans text-[10px] uppercase tracking-[0.2em] text-stone">
+                    {isEn ? item.categoryEn : item.category}
+                  </span>
+                  <span className="font-serif-cn flex-1 text-sm font-bold leading-snug text-ivory transition-colors duration-300 group-hover:text-gold">
+                    {isEn ? item.titleEn : item.title}
+                  </span>
+                  <span className="text-stone transition-colors duration-300 group-hover:text-gold">
+                    →
+                  </span>
+                </Link>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      )}
     </article>
   );
 }
