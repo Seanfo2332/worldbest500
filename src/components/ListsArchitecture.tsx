@@ -1,33 +1,21 @@
 "use client";
 
 import { useRef } from "react";
+import Link from "next/link";
 import { useGSAP } from "@gsap/react";
 import { gsap, ScrollTrigger } from "@/lib/gsap";
 import { useLanguage } from "@/context/LanguageContext";
+import { CURATED_SIX, INDIVIDUAL_THREE } from "@/data/lists";
 import { Reveal } from "./Reveal";
 
 gsap.registerPlugin(ScrollTrigger);
-
-const CURATED_SIX = [
-  { num: "01", enKey: "lists.c1.en", cnKey: "lists.c1.cn" },
-  { num: "02", enKey: "lists.c2.en", cnKey: "lists.c2.cn" },
-  { num: "03", enKey: "lists.c3.en", cnKey: "lists.c3.cn" },
-  { num: "04", enKey: "lists.c4.en", cnKey: "lists.c4.cn" },
-  { num: "05", enKey: "lists.c5.en", cnKey: "lists.c5.cn" },
-  { num: "06", enKey: "lists.c6.en", cnKey: "lists.c6.cn" },
-] as const;
-
-const INDIVIDUAL_THREE = [
-  { num: "I",   enKey: "lists.i1.en", cnKey: "lists.i1.cn" },
-  { num: "II",  enKey: "lists.i2.en", cnKey: "lists.i2.cn" },
-  { num: "III", enKey: "lists.i3.en", cnKey: "lists.i3.cn" },
-] as const;
 
 export function ListsArchitecture() {
   const rootRef    = useRef<HTMLDivElement>(null);
   const counterRef = useRef<HTMLSpanElement>(null);
   const { lang, t } = useLanguage();
   const isEn = lang === "en";
+  const prefix = isEn ? "/en" : "";
 
   useGSAP(
     () => {
@@ -132,12 +120,12 @@ export function ListsArchitecture() {
               {t("lists.subheading")}
             </p>
           </div>
-          <a
-            href="/the-500"
+          <Link
+            href={`${prefix}/the-500`}
             className="font-sans shrink-0 text-xs uppercase tracking-[0.18em] text-stone transition-colors duration-300 hover:text-gold"
           >
             {t("lists.viewAll")} →
-          </a>
+          </Link>
         </Reveal>
 
         {/* ── Main List — The 500 ── */}
@@ -178,13 +166,13 @@ export function ListsArchitecture() {
                 <p className="font-sans-cn mt-5 max-w-lg text-sm leading-7 text-ivory/60 md:text-base">
                   {t("lists.main.desc")}
                 </p>
-                <a
-                  href="/the-500"
+                <Link
+                  href={`${prefix}/the-500`}
                   className="group/link mt-8 inline-flex w-fit items-center gap-3 font-sans text-xs uppercase tracking-[0.18em] text-stone transition-colors duration-300 hover:text-gold"
                 >
                   <span>{isEn ? "Explore The 500" : "探索完整榜单"}</span>
                   <span className="transition-transform duration-300 group-hover/link:translate-x-1.5">→</span>
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -205,10 +193,10 @@ export function ListsArchitecture() {
 
           <div className="grid grid-cols-1 gap-px bg-hairline sm:grid-cols-2 lg:grid-cols-3">
             {CURATED_SIX.map(({ num, enKey, cnKey }) => (
-              <a
+              <Link
                 key={enKey}
                 data-curated-card
-                href="/the-500#curated-six"
+                href={`${prefix}/the-500#curated-six`}
                 className="group relative overflow-hidden bg-ink-soft p-6 transition-colors duration-300 hover:bg-ink"
               >
                 {/* Gold left-border sweep */}
@@ -242,7 +230,7 @@ export function ListsArchitecture() {
                     →
                   </span>
                 </div>
-              </a>
+              </Link>
             ))}
           </div>
         </div>
@@ -262,10 +250,10 @@ export function ListsArchitecture() {
 
           <div className="grid grid-cols-1 gap-px bg-hairline sm:grid-cols-3">
             {INDIVIDUAL_THREE.map(({ num, enKey, cnKey }) => (
-              <a
+              <Link
                 key={enKey}
                 data-individual-card
-                href="/the-500#individual-three"
+                href={`${prefix}/the-500#individual-three`}
                 className="group relative overflow-hidden bg-ink-soft p-8 transition-colors duration-300 hover:bg-ink"
               >
                 {/* Gold left-border sweep */}
@@ -303,7 +291,7 @@ export function ListsArchitecture() {
                     →
                   </span>
                 </div>
-              </a>
+              </Link>
             ))}
           </div>
         </div>

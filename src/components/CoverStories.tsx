@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { coverStories } from "@/data/cover-stories";
 import { Reveal } from "./Reveal";
 import { useLanguage } from "@/context/LanguageContext";
@@ -8,6 +9,7 @@ import { useLanguage } from "@/context/LanguageContext";
 export function CoverStories() {
   const { lang, t } = useLanguage();
   const isZh = lang === "zh";
+  const prefix = lang === "en" ? "/en" : "";
 
   return (
     <section className="border-b border-hairline px-6 py-20 md:px-10">
@@ -18,19 +20,19 @@ export function CoverStories() {
           <h2 className="font-serif-cn text-3xl font-black text-ivory md:text-4xl">
             {t("coverstories.heading")}
           </h2>
-          <a
-            href="/insights"
+          <Link
+            href={`${prefix}/insights`}
             className="font-sans shrink-0 text-xs uppercase tracking-[0.18em] text-stone transition-colors duration-300 hover:text-gold"
           >
             {t("coverstories.viewAll")} →
-          </a>
+          </Link>
         </Reveal>
 
         {/* Featured story — large */}
         {coverStories[0] && (
           <Reveal delay={0.05} className="mt-10">
-            <a
-              href={coverStories[0].href}
+            <Link
+              href={`${prefix}${coverStories[0].href}`}
               className="group grid grid-cols-1 gap-0 border border-hairline lg:grid-cols-[1fr_420px]"
             >
               {/* Image */}
@@ -81,7 +83,7 @@ export function CoverStories() {
                   </span>
                 </div>
               </div>
-            </a>
+            </Link>
           </Reveal>
         )}
 
@@ -89,8 +91,8 @@ export function CoverStories() {
         <div className="mt-px grid grid-cols-1 gap-px bg-hairline sm:grid-cols-2">
           {coverStories.slice(1).map((story, i) => (
             <Reveal key={story.href} delay={0.1 + i * 0.08}>
-              <a
-                href={story.href}
+              <Link
+                href={`${prefix}${story.href}`}
                 className="group flex h-full flex-col bg-ink-soft transition-colors duration-300 hover:bg-ink"
               >
                 {/* Image */}
@@ -131,7 +133,7 @@ export function CoverStories() {
                     </span>
                   </div>
                 </div>
-              </a>
+              </Link>
             </Reveal>
           ))}
         </div>

@@ -1,45 +1,32 @@
 "use client";
 
-import {
-  createContext,
-  useContext,
-  useState,
-  useEffect,
-  type ReactNode,
-} from "react";
+import { createContext, useContext, type ReactNode } from "react";
 import { translations, type Lang, type TranslationKey } from "@/lib/i18n";
 
 interface LanguageContextValue {
   lang: Lang;
-  setLang: (lang: Lang) => void;
   t: (key: TranslationKey) => string;
 }
 
 const LanguageContext = createContext<LanguageContextValue | null>(null);
 
-export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [lang, setLangState] = useState<Lang>("zh");
+interface LanguageProviderProps {
+  children: ReactNode;
+  /**
+   * The active language, resolved server-side from the URL segment
+   * (`/` → "zh", `/en` → "en"). The URL is the single source of truth
+   * for language — see src/app/[lang]/layout.tsx and next.config.ts.
+   */
+  initialLang: Lang;
+}
 
-  useEffect(() => {
-    const saved = localStorage.getItem("wb500-lang") as Lang | null;
-    if (saved === "zh" || saved === "en") setLangState(saved);
-  }, []);
-
-  useEffect(() => {
-    document.documentElement.lang = lang === "zh" ? "zh-CN" : "en";
-  }, [lang]);
-
-  function setLang(next: Lang) {
-    setLangState(next);
-    localStorage.setItem("wb500-lang", next);
-  }
-
+export function LanguageProvider({ children, initialLang }: LanguageProviderProps) {
   function t(key: TranslationKey): string {
-    return translations[lang][key] as string;
+    return translations[initialLang][key] as string;
   }
 
   return (
-    <LanguageContext.Provider value={{ lang, setLang, t }}>
+    <LanguageContext.Provider value={{ lang: initialLang, t }}>
       {children}
     </LanguageContext.Provider>
   );

@@ -8,15 +8,20 @@ import { useLanguage } from "@/context/LanguageContext";
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { lang, setLang, t } = useLanguage();
+  const { lang, t } = useLanguage();
+  const isEn = lang === "en";
+
+  // "zh" is served at "/" (no prefix), "en" is served at "/en".
+  const prefix = isEn ? "/en" : "";
+  const homeHref = isEn ? "/en" : "/";
 
   const NAV_ITEMS = [
-    { label: t("nav.rankings"),    href: "/the-500" },
-    { label: t("nav.companies"),   href: "/companies" },
-    { label: t("nav.industries"),  href: "/industries" },
-    { label: t("nav.insights"),    href: "/insights" },
-    { label: t("nav.methodology"), href: "/methodology" },
-    { label: t("nav.about"),       href: "/about" },
+    { label: t("nav.rankings"),    href: `${prefix}/the-500` },
+    { label: t("nav.companies"),   href: `${prefix}/companies` },
+    { label: t("nav.industries"),  href: `${prefix}/industries` },
+    { label: t("nav.insights"),    href: `${prefix}/insights` },
+    { label: t("nav.methodology"), href: `${prefix}/methodology` },
+    { label: t("nav.about"),       href: `${prefix}/about` },
   ];
 
   useEffect(() => {
@@ -36,8 +41,14 @@ export function Header() {
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3 md:px-10 md:py-4">
 
-        {/* Logo — increased from h-12 to h-20/h-24 to compensate for PNG whitespace */}
-        <Link href="/" className="shrink-0" aria-label="寰球 500 · World Best 500">
+        {/* Logo — increased from h-12 to h-20/h-24 to compensate for PNG whitespace.
+            touch-action: manipulation removes the mobile double-tap-to-zoom delay that
+            can otherwise swallow taps on a fixed header during/after scroll gestures. */}
+        <Link
+          href={homeHref}
+          className="relative z-10 inline-flex shrink-0 touch-manipulation"
+          aria-label="寰球 500 · World Best 500"
+        >
           <Image
             src="/logo.png"
             alt="World Best 500 · 寰球 500"
@@ -63,27 +74,30 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-6">
-          {/* Language toggle */}
+          {/* Language switch — real links to /(zh) and /en so each locale is a
+              crawlable, shareable URL rather than a client-only toggle. */}
           <div className="hidden items-center gap-2 font-sans text-xs uppercase tracking-[0.18em] sm:flex">
-            <button
-              type="button"
-              onClick={() => setLang("zh")}
+            <Link
+              href="/"
+              hrefLang="zh-CN"
+              aria-current={!isEn ? "page" : undefined}
               className={`transition-colors duration-300 ${
-                lang === "zh" ? "text-gold" : "text-ivory hover:text-gold"
+                !isEn ? "text-gold" : "text-ivory hover:text-gold"
               }`}
             >
               中
-            </button>
+            </Link>
             <span className="text-stone">/</span>
-            <button
-              type="button"
-              onClick={() => setLang("en")}
+            <Link
+              href="/en"
+              hrefLang="en"
+              aria-current={isEn ? "page" : undefined}
               className={`transition-colors duration-300 ${
-                lang === "en" ? "text-gold" : "text-ivory hover:text-gold"
+                isEn ? "text-gold" : "text-ivory hover:text-gold"
               }`}
             >
               EN
-            </button>
+            </Link>
           </div>
 
           {/* Mobile menu toggle */}
@@ -92,7 +106,7 @@ export function Header() {
             aria-expanded={isMenuOpen}
             aria-label={t("header.menu")}
             onClick={() => setIsMenuOpen((open) => !open)}
-            className="font-sans text-xs uppercase tracking-[0.18em] text-ivory transition-colors duration-300 hover:text-gold lg:hidden"
+            className="touch-manipulation font-sans text-xs uppercase tracking-[0.18em] text-ivory transition-colors duration-300 hover:text-gold lg:hidden"
           >
             {isMenuOpen ? t("header.close") : t("header.menu")}
           </button>
@@ -112,7 +126,7 @@ export function Header() {
                 <Link
                   href={item.href}
                   onClick={() => setIsMenuOpen(false)}
-                  className="block py-4 font-sans text-xs uppercase tracking-[0.18em] text-ivory transition-colors duration-300 hover:text-gold"
+                  className="touch-manipulation block py-4 font-sans text-xs uppercase tracking-[0.18em] text-ivory transition-colors duration-300 hover:text-gold"
                 >
                   {item.label}
                 </Link>
@@ -120,21 +134,23 @@ export function Header() {
             ))}
             <li className="border-b border-hairline py-4 last:border-b-0">
               <div className="flex items-center gap-4 font-sans text-xs uppercase tracking-[0.18em]">
-                <button
-                  type="button"
-                  onClick={() => { setLang("zh"); setIsMenuOpen(false); }}
-                  className={lang === "zh" ? "text-gold" : "text-ivory hover:text-gold transition-colors"}
+                <Link
+                  href="/"
+                  hrefLang="zh-CN"
+                  onClick={() => setIsMenuOpen(false)}
+                  className={!isEn ? "text-gold" : "text-ivory hover:text-gold transition-colors"}
                 >
                   中文
-                </button>
+                </Link>
                 <span className="text-stone">/</span>
-                <button
-                  type="button"
-                  onClick={() => { setLang("en"); setIsMenuOpen(false); }}
-                  className={lang === "en" ? "text-gold" : "text-ivory hover:text-gold transition-colors"}
+                <Link
+                  href="/en"
+                  hrefLang="en"
+                  onClick={() => setIsMenuOpen(false)}
+                  className={isEn ? "text-gold" : "text-ivory hover:text-gold transition-colors"}
                 >
                   English
-                </button>
+                </Link>
               </div>
             </li>
           </ul>

@@ -1,6 +1,4 @@
-import Image from "next/image";
 import { insights } from "@/data/insights";
-import { Reveal } from "./Reveal";
 import { InsightsGrid } from "./InsightsGrid";
 
 export function Insights() {

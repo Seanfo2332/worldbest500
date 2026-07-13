@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef } from "react";
+import Link from "next/link";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "@/lib/gsap";
 import { useLanguage } from "@/context/LanguageContext";
@@ -60,6 +61,7 @@ export function Hero() {
   );
 
   const isEn = lang === "en";
+  const prefix = isEn ? "/en" : "";
 
   return (
     <section
@@ -131,18 +133,18 @@ export function Hero() {
             data-hero-reveal
             className="mt-10 flex flex-col items-stretch gap-4 sm:flex-row sm:items-center"
           >
-            <a
-              href="/the-500"
+            <Link
+              href={`${prefix}/the-500`}
               className="inline-flex items-center justify-center gap-2 bg-ivory px-8 py-4 font-sans text-xs font-medium uppercase tracking-[0.18em] text-ink transition-colors duration-300 hover:bg-gold-bright"
             >
               {t("hero.cta1")} <span aria-hidden="true">→</span>
-            </a>
-            <a
-              href="/methodology"
+            </Link>
+            <Link
+              href={`${prefix}/methodology`}
               className="inline-flex items-center justify-center gap-2 border border-ivory px-8 py-4 font-sans text-xs font-medium uppercase tracking-[0.18em] text-ivory transition-colors duration-300 hover:bg-ivory hover:text-ink"
             >
               {t("hero.cta2")} <span aria-hidden="true">→</span>
-            </a>
+            </Link>
           </div>
         </div>
       </div>

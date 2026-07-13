@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useLanguage } from "@/context/LanguageContext";
 import { Reveal } from "./Reveal";
 
@@ -22,7 +23,8 @@ const TRACKS = [
 ] as const;
 
 export function NominationCTA() {
-  const { t } = useLanguage();
+  const { lang, t } = useLanguage();
+  const prefix = lang === "en" ? "/en" : "";
 
   return (
     <section className="border-b border-hairline px-6 py-20 md:px-10">
@@ -66,18 +68,18 @@ export function NominationCTA() {
         {/* CTA buttons + organizer placeholder */}
         <Reveal delay={0.1} className="mt-10 flex flex-col gap-6 border-t border-hairline pt-10 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
-            <a
-              href="/nomination"
+            <Link
+              href={`${prefix}/nomination`}
               className="inline-flex items-center justify-center gap-2 bg-ivory px-8 py-4 font-sans text-xs font-medium uppercase tracking-[0.18em] text-ink transition-colors duration-300 hover:bg-gold-bright"
             >
               {t("nomination.cta")} <span aria-hidden="true">→</span>
-            </a>
-            <a
-              href="/nomination#criteria"
+            </Link>
+            <Link
+              href={`${prefix}/nomination#criteria`}
               className="inline-flex items-center justify-center gap-2 border border-hairline px-8 py-4 font-sans text-xs font-medium uppercase tracking-[0.18em] text-ivory/70 transition-colors duration-300 hover:border-ivory/40 hover:text-ivory"
             >
               {t("nomination.criteria")}
-            </a>
+            </Link>
           </div>
           <p className="font-sans text-[10px] uppercase tracking-[0.18em] text-stone">
             {t("nomination.organizer")}

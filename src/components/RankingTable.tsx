@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef } from "react";
+import Link from "next/link";
 import { useGSAP } from "@gsap/react";
 import { gsap, ScrollTrigger } from "@/lib/gsap";
 import { ranking2025Preview } from "@/data/ranking";
@@ -12,6 +13,7 @@ gsap.registerPlugin(ScrollTrigger);
 export function RankingTable() {
   const rootRef = useRef<HTMLDivElement>(null);
   const { lang, t } = useLanguage();
+  const prefix = lang === "en" ? "/en" : "";
 
   useGSAP(
     () => {
@@ -101,12 +103,12 @@ export function RankingTable() {
           <h2 className="font-serif-cn text-3xl font-black text-ivory md:text-4xl">
             {t("ranking.heading")}
           </h2>
-          <a
-            href="/the-500"
+          <Link
+            href={`${prefix}/the-500`}
             className="font-sans shrink-0 text-xs uppercase tracking-[0.18em] text-stone transition-colors duration-300 hover:text-gold"
           >
             {t("ranking.viewAll")} →
-          </a>
+          </Link>
         </div>
 
         <div className="hidden grid-cols-[80px_56px_2fr_1.4fr_1fr_140px] gap-6 bg-ink-soft px-4 py-3 font-sans text-xs uppercase tracking-[0.18em] text-stone md:grid">
@@ -119,7 +121,8 @@ export function RankingTable() {
         </div>
 
         <ul>
-          {ranking2025Preview.map((entry) => (
+          {/* Homepage teaser shows only the top highlights; the full list lives on /the-500 */}
+          {ranking2025Preview.slice(0, 5).map((entry) => (
             <li key={entry.rank} data-rank-row className="border-b border-hairline">
               <div className="grid grid-cols-[56px_48px_1fr] items-center gap-4 px-4 py-7 md:grid-cols-[80px_56px_2fr_1.4fr_1fr_140px] md:gap-6 md:py-8">
                 <span

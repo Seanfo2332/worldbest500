@@ -13,7 +13,7 @@ export const translations = {
     "header.close": "关闭",
 
     // Hero
-    "hero.issue": "VOL. 2026 · NO. 01 — 2026 年度榜单",
+    "hero.issue": "VOL. 2026 NO. 01 · 2026 年度榜单",
     "hero.headline1": "看见全球企业的",
     "hero.headline2": "真正格局",
     "hero.meta1": "2026.05 · 创刊号",
@@ -40,7 +40,7 @@ export const translations = {
       "「寰球 500」正是为填补这一空白而生。这不是对英文榜单的翻译，而是以中文为母语、从中文世界的商业关切出发，独立评选全球最具影响力的企业与商业领袖。",
     "mission.p3":
       "我们致力于成为中立客观且极具影响力的全球商业基准，为企业、投资者与决策者提供有价值的长期参考。",
-    "mission.imgAlt": "宏伟建筑 — 象征全球企业的长远格局",
+    "mission.imgAlt": "宏伟建筑，象征全球企业的长远格局",
 
     // Stats
     "stats.s1.label": "全球领先企业",
@@ -149,9 +149,43 @@ export const translations = {
     "footer.col5.l3": "版权声明",
     "footer.newsletter.title": "关注我们的资讯",
     "footer.newsletter.placeholder": "订阅我们的资讯",
-    "footer.copyright": "© 2025 寰球 500（World Best 500）版权所有",
+    "footer.copyright": "寰球 500（World Best 500）版权所有",
     "footer.privacy": "隐私政策",
     "footer.terms": "使用条款",
+
+    // Common (shared across sub-pages)
+    "common.backHome": "← 返回首页",
+
+    // The 500 (full ranking page)
+    "the500page.eyebrow": "主榜",
+    "the500page.previewNote": "首期预览 · 完整 500 强榜单将分批公布",
+
+    // Companies directory
+    "companiespage.subtitle": "收录寰球 500 榜单及企业聚焦报道中出现的全球领先企业，按行业与总部所在地分类呈现。",
+
+    // Industries
+    "industriespage.subtitle": "寰球 500 覆盖的行业分类，反映当前榜单企业的行业分布。",
+    "industriespage.companiesSuffix": "家企业",
+
+    // Methodology (full page)
+    "methodologypage.weightsHeading": "评分权重",
+    "methodologypage.weightsNote": "以下权重分配为示意性说明，具体评分模型将随完整方法论文件另行公布。",
+
+    // About
+    "aboutpage.title": "关于寰球 500",
+    "aboutpage.standardsHeading": "我们的准则",
+    "aboutpage.standard1.title": "编辑独立性",
+    "aboutpage.standard1.body": "所有榜单结果均由编辑委员会独立审核，不受被评选企业、广告主或合作伙伴的商业关系影响。",
+    "aboutpage.standard2.title": "数据驱动",
+    "aboutpage.standard2.body": "评选以公开财报及权威第三方数据平台为基础，辅以编辑委员会的定性复核，兼顾客观性与专业判断。",
+    "aboutpage.standard3.title": "中文视角",
+    "aboutpage.standard3.body": "我们不是英文榜单的翻译，而是从中文世界的商业关切出发，独立构建的原创评选体系。",
+
+    // Insights (index page)
+    "insightspage.subtitle": "涵盖榜单解读、行业洞察与企业聚焦报道，持续追踪全球商业格局的演变。",
+
+    // Article detail
+    "article.backToInsights": "← 返回洞察",
   },
   en: {
     // Header
@@ -165,7 +199,7 @@ export const translations = {
     "header.close": "Close",
 
     // Hero
-    "hero.issue": "VOL. 2026 · NO. 01 — 2026 ANNUAL EDITION",
+    "hero.issue": "VOL. 2026 NO. 01 · 2026 ANNUAL EDITION",
     "hero.headline1": "The True Scale of",
     "hero.headline2": "Global Business",
     "hero.meta1": "MAY 2026 · INAUGURAL ISSUE",
@@ -187,13 +221,13 @@ export const translations = {
     // Mission
     "mission.heading": "Our Mission",
     "mission.p1":
-      "Every major business ranking in the world — Fortune, Forbes, Bloomberg, the Economist — operates primarily in English. Yet the Chinese-speaking world, with 1.4 billion people and thriving business communities across Southeast Asia, North America, and Europe, has never had a native-language global corporate ranking.",
+      "The world's major business rankings (Fortune, Forbes, Bloomberg, the Economist) operate primarily in English. Yet the Chinese-speaking world, with 1.4 billion people and thriving business communities across Southeast Asia, North America, and Europe, has never had a native-language global corporate ranking.",
     "mission.p2":
       "World Best 500 exists to fill that gap. This is not a translation of existing English rankings. It is an original editorial work, built from a Chinese-language perspective, evaluating global companies and business leaders through the lens of what matters to Chinese-speaking readers.",
     "mission.p3":
-      "We are committed to becoming a neutral, objective, and authoritative global business benchmark — a long-term reference for enterprises, investors, and decision-makers worldwide.",
+      "We are committed to becoming a neutral, objective, and authoritative global business benchmark: a long-term reference for enterprises, investors, and decision-makers worldwide.",
     "mission.imgAlt":
-      "Grand architecture — symbolizing the long-term vision of global enterprises",
+      "Grand architecture, symbolizing the long-term vision of global enterprises",
 
     // Stats
     "stats.s1.label": "Global Leading Companies",
@@ -209,12 +243,12 @@ export const translations = {
     // Lists Architecture
     "lists.heading": "The Full Picture",
     "lists.subheading":
-      "World Best 500 comprises one main list, six enterprise sub-lists, and three individual sub-lists — a complete global business ranking system covering corporate overall strength, specialized dimensions, and business leadership.",
+      "World Best 500 comprises one main list, six enterprise sub-lists, and three individual sub-lists: a complete global business ranking system covering corporate overall strength, specialized dimensions, and business leadership.",
     "lists.main.badge": "Main List",
     "lists.main.title": "The 500",
     "lists.main.count": "500 Companies",
     "lists.main.desc":
-      "Using revenue scale, global reach, and industry influence as core evaluation dimensions, the annual selection identifies the 500 most globally influential companies — including listed and major private enterprises across all countries.",
+      "Using revenue scale, global reach, and industry influence as core evaluation dimensions, the annual selection identifies the 500 most globally influential companies, including listed and major private enterprises across all countries.",
     "lists.curated.label": "Enterprise Sub-Lists · The Curated Six",
     "lists.curated.sublabel": "10 companies per list · Highly selective",
     "lists.individual.label": "Individual Sub-Lists · The Individual Three",
@@ -254,7 +288,7 @@ export const translations = {
       "Annual corporate revenue serves as the foundational scoring dimension, referenced against audited public financial reports and authoritative third-party platforms including Bloomberg and FactSet.",
     "methodology.d2.title": "Global Reach",
     "methodology.d2.body":
-      "Evaluates the breadth of a company's global market presence, overseas revenue proportion, and depth of multinational operations — measuring the true extent of influence beyond domestic markets.",
+      "Evaluates the breadth of a company's global market presence, overseas revenue proportion, and depth of multinational operations, measuring the true extent of influence beyond domestic markets.",
     "methodology.d3.title": "Industry Influence",
     "methodology.d3.body":
       "A composite assessment of market position, technological leadership, patent portfolio, and the ability to define and shape industry standards within the company's sector.",
@@ -303,9 +337,43 @@ export const translations = {
     "footer.col5.l3": "Copyright",
     "footer.newsletter.title": "Stay Informed",
     "footer.newsletter.placeholder": "Subscribe to our newsletter",
-    "footer.copyright": "© 2025 World Best 500. All rights reserved.",
+    "footer.copyright": "World Best 500. All rights reserved.",
     "footer.privacy": "Privacy Policy",
     "footer.terms": "Terms of Use",
+
+    // Common (shared across sub-pages)
+    "common.backHome": "← Back to Home",
+
+    // The 500 (full ranking page)
+    "the500page.eyebrow": "Main List",
+    "the500page.previewNote": "Inaugural preview: the complete list of 500 will be published progressively.",
+
+    // Companies directory
+    "companiespage.subtitle": "Leading global companies featured across the World Best 500 ranking and our company-focus coverage, organized by industry and headquarters.",
+
+    // Industries
+    "industriespage.subtitle": "The industry categories covered by World Best 500, reflecting the current sector distribution of ranked companies.",
+    "industriespage.companiesSuffix": "companies",
+
+    // Methodology (full page)
+    "methodologypage.weightsHeading": "Scoring Weights",
+    "methodologypage.weightsNote": "The weighting shown below is illustrative; the full scoring model will be published separately alongside the complete methodology paper.",
+
+    // About
+    "aboutpage.title": "About World Best 500",
+    "aboutpage.standardsHeading": "Our Standards",
+    "aboutpage.standard1.title": "Editorial Independence",
+    "aboutpage.standard1.body": "Every ranking outcome is independently reviewed by our editorial committee, free from commercial influence by ranked companies, advertisers, or partners.",
+    "aboutpage.standard2.title": "Data-Driven Rigor",
+    "aboutpage.standard2.body": "Rankings are built on audited public financial reports and authoritative third-party data platforms, supplemented by qualitative review from our editorial committee, balancing objectivity with professional judgment.",
+    "aboutpage.standard3.title": "A Native Chinese-Language Perspective",
+    "aboutpage.standard3.body": "We are not a translation of an English-language ranking. Our evaluation framework is built independently, from the commercial concerns of the Chinese-speaking world.",
+
+    // Insights (index page)
+    "insightspage.subtitle": "Ranking analysis, industry insight, and company-focus reporting: ongoing coverage of how the global corporate landscape is evolving.",
+
+    // Article detail
+    "article.backToInsights": "← Back to Insights",
   },
 } as const;
 

@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { type InsightEntry } from "@/data/insights";
 import { Reveal } from "./Reveal";
 import { useLanguage } from "@/context/LanguageContext";
@@ -11,6 +12,7 @@ interface InsightsGridProps {
 
 export function InsightsGrid({ insights }: InsightsGridProps) {
   const { lang, t } = useLanguage();
+  const prefix = lang === "en" ? "/en" : "";
 
   return (
     <>
@@ -18,17 +20,17 @@ export function InsightsGrid({ insights }: InsightsGridProps) {
         <h2 className="font-serif-cn text-3xl font-black text-ivory md:text-4xl">
           {t("insights.heading")}
         </h2>
-        <a
-          href="/insights"
+        <Link
+          href={`${prefix}/insights`}
           className="font-sans shrink-0 text-xs uppercase tracking-[0.18em] text-stone transition-colors duration-300 hover:text-gold"
         >
           {t("insights.viewAll")} →
-        </a>
+        </Link>
       </Reveal>
       <div className="mt-2 grid grid-cols-1 gap-px bg-hairline sm:grid-cols-2 lg:grid-cols-4">
         {insights.map((item, i) => (
           <Reveal key={item.href} delay={i * 0.07} className="bg-ink-soft">
-            <a href={item.href} className="group flex h-full flex-col">
+            <Link href={`${prefix}${item.href}`} className="group flex h-full flex-col">
               <div className="overflow-hidden">
                 <div className="relative aspect-[3/2] w-full transition-transform duration-700 group-hover:scale-[1.04]">
                   <Image
@@ -55,7 +57,7 @@ export function InsightsGrid({ insights }: InsightsGridProps) {
                   </span>
                 </div>
               </div>
-            </a>
+            </Link>
           </Reveal>
         ))}
       </div>

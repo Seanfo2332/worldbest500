@@ -5,6 +5,7 @@ import { useLanguage } from "@/context/LanguageContext";
 
 export function Footer() {
   const { t } = useLanguage();
+  const currentYear = new Date().getFullYear();
 
   const FOOTER_COLUMNS = [
     {
@@ -76,17 +77,19 @@ export function Footer() {
 
         <div className="mt-16 flex flex-col items-start justify-between gap-6 border-t border-hairline pt-8 md:flex-row md:items-center">
 
-          {/* Logo image — invert to white for dark footer */}
+          {/* Logo image — invert to white for dark footer; sized up from h-11 for legibility */}
           <Image
             src="/logo.png"
             alt="World Best 500 · 寰球 500"
-            width={140}
-            height={56}
-            className="h-11 w-auto object-contain"
-            style={{ filter: "brightness(0) invert(1)", opacity: 0.85 }}
+            width={220}
+            height={88}
+            className="h-16 w-auto object-contain md:h-20"
+            style={{ filter: "brightness(0) invert(1)", opacity: 0.9 }}
           />
 
-          <p className="font-sans-cn text-xs text-stone">{t("footer.copyright")}</p>
+          <p className="font-sans-cn text-xs text-stone">
+            © {currentYear} {t("footer.copyright")}
+          </p>
 
           <div className="font-sans flex gap-6 text-xs uppercase tracking-[0.18em] text-stone">
             <a href="#" className="transition-colors duration-300 hover:text-gold">
