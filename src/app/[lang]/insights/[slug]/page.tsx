@@ -5,7 +5,12 @@ import { buildLocaleMetadata, SITE_URL } from "@/lib/metadata";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { ArticleDetail } from "@/components/ArticleDetail";
-import { findArticleBySlug, getAllArticleSlugs } from "@/lib/articles";
+import { findArticleBySlugAsync, getAllArticleSlugs } from "@/lib/articles";
+
+// Curated slugs are pre-rendered; auto-crawled 洞察 (added to Supabase after build) render
+// on-demand -- dynamicParams (the App Router default, set explicitly here) allows a slug that
+// isn't in generateStaticParams to be rendered at request time.
+export const dynamicParams = true;
 
 export function generateStaticParams() {
   return getAllArticleSlugs().map((slug) => ({ slug }));
@@ -17,7 +22,7 @@ export async function generateMetadata({
   params: Promise<{ lang: string; slug: string }>;
 }): Promise<Metadata> {
   const { lang, slug } = await params;
-  const article = findArticleBySlug(slug);
+  const article = await findArticleBySlugAsync(slug);
   if (!article) return {};
 
   const isEn = lang === "en";
@@ -35,7 +40,7 @@ export default async function ArticlePage({
   params: Promise<{ lang: string; slug: string }>;
 }) {
   const { lang, slug } = await params;
-  const article = findArticleBySlug(slug);
+  const article = await findArticleBySlugAsync(slug);
 
   if (!article) {
     notFound();

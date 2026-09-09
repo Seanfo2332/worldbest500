@@ -1,0 +1,42 @@
+name: Weekly article crawl
+
+# Runs the crawl-and-rewrite pipeline once a week: pull a company/founder profile from
+# successstory.com, rewrite it into a Chinese 寰球 500 企业聚焦 piece, insert one row into the
+# shared MCN Group Supabase `articles` table as country_code=WB500 (auto-published). Runs as a
+# plain Node script inside this job -- the site is Next.js on Vercel but the crawler doesn't
+# need a server, and keeping it a script matches the other MCN Group crawlers.
+#
+# Monday 02:00 UTC -- the MCN Group crawls run Tue/Wed/Fri, so the enterprise ones take
+# Mon/Thu/Sat to avoid competing for the same GitHub Actions minute across repos.
+on:
+  schedule:
+    - cron: "0 2 * * 1"
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  crawl:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    defaults:
+      run:
+        working-directory: scripts/crawler
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Install dependencies
+        run: npm ci
+      - name: Run crawl cycle
+        run: npm run crawl
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+          COUNTRY_CODE: WB500
+          FIRECRAWL_API_KEY: ${{ secrets.FIRECRAWL_API_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          KIE_API_KEY: ${{ secrets.KIE_API_KEY }}

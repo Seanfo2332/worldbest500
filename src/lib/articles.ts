@@ -76,6 +76,18 @@ export function findArticleBySlug(slug: string): Article | undefined {
   return articleIndex.get(slug);
 }
 
+/**
+ * Curated article by slug, falling back to a Supabase lookup for auto-crawled 洞察
+ * (country_code=WB500) that aren't in the static data. Used by the /insights/[slug] page and its
+ * generateMetadata, which run per-request for slugs not in generateStaticParams.
+ */
+export async function findArticleBySlugAsync(slug: string): Promise<Article | null> {
+  const curated = articleIndex.get(slug);
+  if (curated) return curated;
+  const { findCrawledArticle } = await import("./crawledInsights");
+  return findCrawledArticle(slug);
+}
+
 export function getAllArticleSlugs(): string[] {
   return Array.from(articleIndex.keys());
 }
