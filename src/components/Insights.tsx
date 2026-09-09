@@ -13,7 +13,18 @@ import { InsightsGrid } from "./InsightsGrid";
 // variant: "home" shows the full header (heading + "View All Insights →" CTA to /insights);
 // "index" is the /insights page itself, where PageHero already carries the heading and a
 // "View All" link would just point back to the current page (the reported dead link).
-export function Insights({ variant = "home" }: { variant?: "home" | "index" }) {
+//
+// limit: max cards to render, applied AFTER the newest-first sort so the newest always win.
+// The homepage passes 6 — exactly two full rows of the 3-col desktop grid (3x2), so it never
+// shows a ragged trailing row and never grows unbounded as the weekly crawl adds articles.
+// /insights passes no limit: it is the archive, and capping it would orphan older pieces.
+export function Insights({
+  variant = "home",
+  limit,
+}: {
+  variant?: "home" | "index";
+  limit?: number;
+}) {
   const [merged, setMerged] = useState<InsightEntry[]>(curatedInsights);
 
   useEffect(() => {
@@ -31,10 +42,12 @@ export function Insights({ variant = "home" }: { variant?: "home" | "index" }) {
     };
   }, []);
 
+  const visible = typeof limit === "number" ? merged.slice(0, limit) : merged;
+
   return (
     <section className="border-b border-hairline px-6 py-20 md:px-10">
       <div className="mx-auto max-w-7xl">
-        <InsightsGrid insights={merged} variant={variant} />
+        <InsightsGrid insights={visible} variant={variant} />
       </div>
     </section>
   );

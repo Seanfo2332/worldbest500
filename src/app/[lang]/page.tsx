@@ -22,7 +22,7 @@ export default function Home() {
         <Mission />
         <MethodologyStrip />
         <Stats />
-        <Insights />
+        <Insights limit={6} />
         <NominationCTA />
       </main>
       <Footer />
