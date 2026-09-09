@@ -6,7 +6,9 @@ import { coverStories } from "@/data/cover-stories";
 import { Reveal } from "./Reveal";
 import { useLanguage } from "@/context/LanguageContext";
 
-export function CoverStories() {
+// showViewAll: true on the homepage (the "View All Stories →" link is a real CTA to /insights);
+// false on the /insights index page, where that link would only point back to the current page.
+export function CoverStories({ showViewAll = true }: { showViewAll?: boolean }) {
   const { lang, t } = useLanguage();
   const isZh = lang === "zh";
   const prefix = lang === "en" ? "/en" : "";
@@ -20,12 +22,14 @@ export function CoverStories() {
           <h2 className="font-serif-cn text-3xl font-black text-ivory md:text-4xl">
             {t("coverstories.heading")}
           </h2>
-          <Link
-            href={`${prefix}/insights`}
-            className="font-sans shrink-0 text-xs uppercase tracking-[0.18em] text-stone transition-colors duration-300 hover:text-gold"
-          >
-            {t("coverstories.viewAll")} →
-          </Link>
+          {showViewAll && (
+            <Link
+              href={`${prefix}/insights`}
+              className="font-sans shrink-0 text-xs uppercase tracking-[0.18em] text-stone transition-colors duration-300 hover:text-gold"
+            >
+              {t("coverstories.viewAll")} →
+            </Link>
+          )}
         </Reveal>
 
         {/* Featured story — large */}

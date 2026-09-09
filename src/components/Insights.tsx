@@ -9,7 +9,11 @@ import { InsightsGrid } from "./InsightsGrid";
 // (country_code=WB500, written by scripts/crawler/). Curated shows immediately; crawled are
 // appended once the query resolves, newest-first by publish date. Same "curated + crawled,
 // merged at read time" pattern the MCN Group sites use.
-export function Insights() {
+//
+// variant: "home" shows the full header (heading + "View All Insights →" CTA to /insights);
+// "index" is the /insights page itself, where PageHero already carries the heading and a
+// "View All" link would just point back to the current page (the reported dead link).
+export function Insights({ variant = "home" }: { variant?: "home" | "index" }) {
   const [merged, setMerged] = useState<InsightEntry[]>(curatedInsights);
 
   useEffect(() => {
@@ -30,7 +34,7 @@ export function Insights() {
   return (
     <section className="border-b border-hairline px-6 py-20 md:px-10">
       <div className="mx-auto max-w-7xl">
-        <InsightsGrid insights={merged} />
+        <InsightsGrid insights={merged} variant={variant} />
       </div>
     </section>
   );

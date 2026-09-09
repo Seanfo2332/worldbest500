@@ -15,8 +15,8 @@ export function InsightsIndexContent() {
         title={t("insights.heading")}
         subtitle={t("insightspage.subtitle")}
       />
-      <CoverStories />
-      <Insights />
+      <CoverStories showViewAll={false} />
+      <Insights variant="index" />
     </>
   );
 }

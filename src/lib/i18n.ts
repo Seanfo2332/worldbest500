@@ -51,6 +51,7 @@ export const translations = {
 
     // Insights
     "insights.heading": "洞察与观点",
+    "insights.latestHeading": "最新洞察",
     "insights.viewAll": "查看全部洞察",
 
     // Lists Architecture
@@ -309,6 +310,7 @@ export const translations = {
 
     // Insights
     "insights.heading": "Insights & Perspectives",
+    "insights.latestHeading": "Latest Insights",
     "insights.viewAll": "View All Insights",
 
     // Lists Architecture
